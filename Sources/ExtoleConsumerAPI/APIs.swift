@@ -6,8 +6,8 @@
 
 import Foundation
 
-open class ExtoleConsumerAPIAPI {
-    public static var basePath = "https://extole-api.extole.io/api/"
+open class ExtoleConsumerAPI {
+    public static var basePath = ""
     public static var credential: URLCredential?
     public static var customHeaders: [String:String] = [:]
     public static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
@@ -19,7 +19,7 @@ open class RequestBuilder<T> {
     public let parameters: [String:Any]?
     public let isBody: Bool
     public let method: String
-    public let URLString: String
+    public var URLString: String
 
     /// Optional block to obtain a reference to the request's progress instance when available.
     public var onProgressReady: ((Progress) -> ())?
@@ -31,7 +31,11 @@ open class RequestBuilder<T> {
         self.isBody = isBody
         self.headers = headers
 
-        addHeaders(ExtoleConsumerAPIAPI.customHeaders)
+        addHeaders(ExtoleConsumerAPI.customHeaders)
+    }
+
+    open func withProgramDomain(_ programDomain: String) {
+        URLString = programDomain + URLString
     }
 
     open func addHeaders(_ aHeaders:[String:String]) {
@@ -50,7 +54,7 @@ open class RequestBuilder<T> {
     }
 
     open func addCredential() -> Self {
-        self.credential = ExtoleConsumerAPIAPI.credential
+        self.credential = ExtoleConsumerAPI.credential
         return self
     }
 }

@@ -31,10 +31,10 @@ public struct MyProfileResponse: Codable {
     public var cookieConsentType: CookieConsentType?
     public var processingConsent: String?
     public var processingConsentType: ProcessingConsentType?
-    public var parameters: [String:String]?
+    public var parameters: [String:Entry?]?
     public var locale: String?
 
-    public init(_id: String? = nil, email: String? = nil, firstName: String? = nil, lastName: String? = nil, profilePictureUrl: String? = nil, partnerUserId: String? = nil, cookieConsent: String? = nil, cookieConsentType: CookieConsentType? = nil, processingConsent: String? = nil, processingConsentType: ProcessingConsentType? = nil, parameters: [String:String]? = nil, locale: String? = nil) {
+    public init(_id: String? = nil, email: String? = nil, firstName: String? = nil, lastName: String? = nil, profilePictureUrl: String? = nil, partnerUserId: String? = nil, cookieConsent: String? = nil, cookieConsentType: CookieConsentType? = nil, processingConsent: String? = nil, processingConsentType: ProcessingConsentType? = nil, parameters: [String:Entry?]? = nil, locale: String? = nil) {
         self._id = _id
         self.email = email
         self.firstName = firstName
