@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="565402c2-441a-4282-b9cc-d553578dac93" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs/DefaultAPI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs/EventsAPI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs/V4meAPI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs/V4tokenAPI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs/V5tokenAPI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs/V6audienceListsAPI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs/V6batchesAPI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs/V6reportRunnersAPI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs/V6reportTypesAPI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/APIs/V6zonesAPI.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/AudienceListDataSourceRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/AudienceListDataSourceResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/AudienceListRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/AudienceListResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/BatchJobCreateRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/BatchJobFormatInfoResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/BatchJobResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/BatchJobUpdateRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ConfiguredReportTypeCreateRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ConfiguredReportTypeResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ConfiguredReportTypeUpdateRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/DashboardReportTypeResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/DashboardReportTypeUpdateRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/DataSourceRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/DataSourceResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/DynamicAudienceListRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/DynamicAudienceListResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/FileAssetDataSourceRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/FileAssetDataSourceResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/FileAssetMetadata.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/FileAssetRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/FileAssetResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/FileAttributes.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/FileInputStreamRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/MyProfileResponse.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/MyProfileResponse.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/RefreshingReportRunnerRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/RefreshingReportRunnerResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportDataSourceRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportDataSourceResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportParameterDetailsResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportParameterResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportParameterTypeResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportRunnerRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportRunnerResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportTypeColumnResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportTypeCreateRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportTypeParameterDetailsRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportTypeParameterDetailsResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportTypeResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportTypeTagRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportTypeTagResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportTypeUpdateRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ReportTypeWithClientsResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/RestExceptionResponse.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/RestExceptionResponse.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ScheduledReportRunnerRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ScheduledReportRunnerResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/SparkReportTypeResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/SparkReportTypeUpdateRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/SqlReportTypeCreateRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/SqlReportTypeResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/SqlReportTypeUpdateRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/StaticAudienceListRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/StaticAudienceListResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/UploadedAudienceListRequest.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/UploadedAudienceListResponse.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ZoneResponse.swift" beforeDir="false" afterPath="$PROJECT_DIR$/Sources/ExtoleConsumerAPI/Models/ZoneResponse.swift" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2002orr6bImTOUWHf0MTQAgkMkW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RunManager">
+    <configuration name="ExtoleConsumerAPITests" type="SwiftPackageManagerTestRunConfiguration" factoryName="Swift Package Test" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ios-consumer-api" TARGET_NAME="ExtoleConsumerAPITests" CONFIG_NAME="ExtoleConsumerAPITests" RUN_TARGET_PROJECT_NAME="ios-consumer-api" RUN_TARGET_NAME="ExtoleConsumerAPITests" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="SPM.BUILD_TASK_PROVIDER" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="565402c2-441a-4282-b9cc-d553578dac93" name="Changes" comment="" />
+      <created>1635167362129</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635167362129</updated>
+      <workItem from="1635167365963" duration="4362000" />
+      <workItem from="1635237493523" duration="2000" />
+      <workItem from="1635237871832" duration="980000" />
+      <workItem from="1635755885430" duration="39000" />
+      <workItem from="1635756002633" duration="137000" />
+      <workItem from="1636724737685" duration="588000" />
+      <workItem from="1636735236597" duration="565000" />
+      <workItem from="1636972666172" duration="597000" />
+      <workItem from="1636973907836" duration="2622000" />
+      <workItem from="1636980312568" duration="729000" />
+      <workItem from="1636996748727" duration="452000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

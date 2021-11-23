@@ -12,9 +12,9 @@ import Foundation
 public struct ZoneResponse: Codable {
 
     public var eventId: String?
-    public var data: [String:String]?
+    public var data: [String:Entry?]?
 
-    public init(eventId: String? = nil, data: [String:String]? = nil) {
+    public init(eventId: String? = nil, data: [String:Entry?]? = nil) {
         self.eventId = eventId
         self.data = data
     }
