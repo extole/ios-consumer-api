@@ -13,6 +13,49 @@ open class AuthorizationV4Endpoints {
     /**
      Deletes the unique access token identified in the request from the associate user's profile.
 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteToken(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        deleteTokenWithRequestBuilder().execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     Deletes the unique access token identified in the request from the associate user's profile.
+     - DELETE /v4/token
+
+     - API Key:
+       - type: apiKey access_token (QUERY)
+       - name: COOKIE
+     - API Key:
+       - type: apiKey Authorization 
+       - name: HEADER
+     - API Key:
+       - type: apiKey access_token (QUERY)
+       - name: QUERY
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func deleteTokenWithRequestBuilder() -> RequestBuilder<Void> {
+        let path = "/v4/token"
+        let URLString = ExtoleConsumerAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        let url = URLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<Void>.Type = ExtoleConsumerAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+    /**
+     Deletes the unique access token identified in the request from the associate user's profile.
+
      - parameter token: (path)  
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -49,49 +92,6 @@ open class AuthorizationV4Endpoints {
         let tokenPreEscape = "\(token)"
         let tokenPostEscape = tokenPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{token}", with: tokenPostEscape, options: .literal, range: nil)
-        let URLString = ExtoleConsumerAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        let url = URLComponents(string: URLString)
-
-
-        let requestBuilder: RequestBuilder<Void>.Type = ExtoleConsumerAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-    /**
-     Deletes the unique access token identified in the request from the associate user's profile.
-
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func deleteToken(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        deleteTokenWithRequestBuilder().execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     Deletes the unique access token identified in the request from the associate user's profile.
-     - DELETE /v4/token
-
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: COOKIE
-     - API Key:
-       - type: apiKey Authorization 
-       - name: HEADER
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: QUERY
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func deleteTokenWithRequestBuilder() -> RequestBuilder<Void> {
-        let path = "/v4/token"
         let URLString = ExtoleConsumerAPI.basePath + path
         let parameters: [String:Any]? = nil
         let url = URLComponents(string: URLString)
