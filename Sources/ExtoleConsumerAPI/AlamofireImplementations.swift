@@ -126,7 +126,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
 
         switch T.self {
         case is String.Type:
-            validatedRequest.responseString(completionHandler: { (stringResponse) in
+            validatedRequest.responseString(queue: DispatchQueue.global(), completionHandler: { (stringResponse) in
                 cleanupRequest()
 
                 if stringResponse.result.isFailure {
@@ -146,7 +146,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                 )
             })
         case is URL.Type:
-            validatedRequest.responseData(completionHandler: { (dataResponse) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (dataResponse) in
                 cleanupRequest()
 
                 do {
@@ -196,7 +196,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                 return
             })
         case is Void.Type:
-            validatedRequest.responseData(completionHandler: { (voidResponse) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (voidResponse) in
                 cleanupRequest()
 
                 if voidResponse.result.isFailure {
@@ -215,7 +215,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                 )
             })
         default:
-            validatedRequest.responseData(completionHandler: { (dataResponse) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (dataResponse) in
                 cleanupRequest()
 
                 if dataResponse.result.isFailure {
@@ -330,7 +330,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
 
         switch T.self {
         case is String.Type:
-            validatedRequest.responseString(completionHandler: { (stringResponse) in
+            validatedRequest.responseString(queue: DispatchQueue.global(), completionHandler: { (stringResponse) in
                 cleanupRequest()
 
                 if stringResponse.result.isFailure {
@@ -350,7 +350,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
                 )
             })
         case is Void.Type:
-            validatedRequest.responseData(completionHandler: { (voidResponse) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (voidResponse) in
                 cleanupRequest()
 
                 if voidResponse.result.isFailure {
@@ -369,7 +369,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
                 )
             })
         case is Data.Type:
-            validatedRequest.responseData(completionHandler: { (dataResponse) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (dataResponse) in
                 cleanupRequest()
 
                 if dataResponse.result.isFailure {
@@ -389,7 +389,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
                 )
             })
         default:
-            validatedRequest.responseData(completionHandler: { (dataResponse: DataResponse<Data>) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (dataResponse: DataResponse<Data>) in
                 cleanupRequest()
 
                 guard dataResponse.result.isSuccess else {

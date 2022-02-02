@@ -11,51 +11,6 @@ import Alamofire
 
 open class DefaultEndpoints {
     /**
-     Log internally in kibana
-
-     - parameter body: (body)  
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func create(body: CreateCreativeLogRequest, completion: @escaping ((_ data: CreateCreativeLogResponse?,_ error: Error?) -> Void)) {
-        createWithRequestBuilder(body: body).execute { (response, error) -> Void in
-            completion(response?.body, error)
-        }
-    }
-
-
-    /**
-     Log internally in kibana
-     - POST /v4/debug/logs
-     - 
-
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: COOKIE
-     - API Key:
-       - type: apiKey Authorization 
-       - name: HEADER
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: QUERY
-     - examples: [{contentType=application/json, example={
-  "polling_id" : "polling_id"
-}}]
-     - parameter body: (body)  
-
-     - returns: RequestBuilder<CreateCreativeLogResponse> 
-     */
-    open class func createWithRequestBuilder(body: CreateCreativeLogRequest) -> RequestBuilder<CreateCreativeLogResponse> {
-        let path = "/v4/debug/logs"
-        let URLString = ExtoleConsumerAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
-        let url = URLComponents(string: URLString)
-
-
-        let requestBuilder: RequestBuilder<CreateCreativeLogResponse>.Type = ExtoleConsumerAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
-    }
-    /**
      Download content for an asset
 
      - parameter personId: (path) The Extole unique profile identifier of this user at Extole. 
