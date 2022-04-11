@@ -51,9 +51,10 @@ public struct RewardResponse: Codable {
     public var partnerRewardSupplierId: String?
     public var rewardName: String?
     public var expiryDate: String?
+    public var redeemedDate: String?
     public var _id: String?
 
-    public init(rewardId: String? = nil, state: String? = nil, partnerRewardId: String? = nil, code: String? = nil, faceValue: String? = nil, amount: String? = nil, faceValueType: FaceValueType? = nil, dateEarned: String? = nil, dateIssued: String? = nil, dateDelivered: String? = nil, campaignId: String? = nil, programLabel: String? = nil, sandbox: String? = nil, slots: [String]? = nil, tags: [String]? = nil, type: ModelType? = nil, rewardSupplierId: String? = nil, partnerRewardSupplierId: String? = nil, rewardName: String? = nil, expiryDate: String? = nil, _id: String? = nil) {
+    public init(rewardId: String? = nil, state: String? = nil, partnerRewardId: String? = nil, code: String? = nil, faceValue: String? = nil, amount: String? = nil, faceValueType: FaceValueType? = nil, dateEarned: String? = nil, dateIssued: String? = nil, dateDelivered: String? = nil, campaignId: String? = nil, programLabel: String? = nil, sandbox: String? = nil, slots: [String]? = nil, tags: [String]? = nil, type: ModelType? = nil, rewardSupplierId: String? = nil, partnerRewardSupplierId: String? = nil, rewardName: String? = nil, expiryDate: String? = nil, redeemedDate: String? = nil, _id: String? = nil) {
         self.rewardId = rewardId
         self.state = state
         self.partnerRewardId = partnerRewardId
@@ -74,6 +75,7 @@ public struct RewardResponse: Codable {
         self.partnerRewardSupplierId = partnerRewardSupplierId
         self.rewardName = rewardName
         self.expiryDate = expiryDate
+        self.redeemedDate = redeemedDate
         self._id = _id
     }
 
@@ -98,6 +100,7 @@ public struct RewardResponse: Codable {
         case partnerRewardSupplierId = "partner_reward_supplier_id"
         case rewardName = "reward_name"
         case expiryDate = "expiry_date"
+        case redeemedDate = "redeemed_date"
         case _id = "id"
     }
 

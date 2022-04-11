@@ -36,10 +36,8 @@ open class EventEndpoints {
      - API Key:
        - type: apiKey access_token (QUERY)
        - name: QUERY
-     - responseHeaders: [null, null, null, null]
-     - responseHeaders: [null, null, null, null]
-     - responseHeaders: [null, null, null, null]
-     - responseHeaders: [null, null, null, null]
+     - responseHeaders: [null, null]
+     - responseHeaders: [null, null]
      - examples: [{contentType=application/json, example={
   "cookie_consent" : "cookie_consent",
   "id" : "id",
@@ -89,10 +87,8 @@ open class EventEndpoints {
      - API Key:
        - type: apiKey access_token (QUERY)
        - name: QUERY
-     - responseHeaders: [null, null, null, null]
-     - responseHeaders: [null, null, null, null]
-     - responseHeaders: [null, null, null, null]
-     - responseHeaders: [null, null, null, null]
+     - responseHeaders: [null, null]
+     - responseHeaders: [null, null]
      - examples: [{contentType=application/json, example={
   "cookie_consent" : "cookie_consent",
   "id" : "id",

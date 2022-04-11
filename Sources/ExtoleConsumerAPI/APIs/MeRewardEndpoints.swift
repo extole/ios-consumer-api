@@ -51,6 +51,7 @@ open class MeRewardEndpoints {
     "type" : "TANGO_V2",
     "tags" : [ "tags", "tags" ],
     "date_earned" : "date_earned",
+    "redeemed_date" : "redeemed_date",
     "slots" : [ "slots", "slots" ],
     "partner_reward_supplier_id" : "partner_reward_supplier_id",
     "date_issued" : "date_issued",
