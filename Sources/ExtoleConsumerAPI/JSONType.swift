@@ -16,6 +16,8 @@ public class Entry: JSONType {
     public let jsonValue: Any
 
     public func encode(to encoder: Encoder) throws {
+        var container = try encoder.singleValueContainer()
+
         if let intValue = jsonValue as? Int {
             try container.encode(intValue)
         } else if let stringValue = jsonValue as? String {
