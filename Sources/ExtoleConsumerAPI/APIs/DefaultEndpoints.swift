@@ -182,6 +182,49 @@ open class DefaultEndpoints {
     }
     /**
 
+     - parameter body: (body)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func post(body: RenderZoneRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - POST /zones
+
+     - API Key:
+       - type: apiKey access_token (QUERY)
+       - name: COOKIE
+     - API Key:
+       - type: apiKey Authorization 
+       - name: HEADER
+     - API Key:
+       - type: apiKey access_token (QUERY)
+       - name: QUERY
+     - parameter body: (body)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func postWithRequestBuilder(body: RenderZoneRequest? = nil) -> RequestBuilder<Void> {
+        let path = "/zones"
+        let URLString = ExtoleConsumerAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+        let url = URLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<Void>.Type = ExtoleConsumerAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+    /**
+
      - parameter zoneName: (path)  
      - parameter body: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -219,49 +262,6 @@ open class DefaultEndpoints {
         let zoneNamePreEscape = "\(zoneName)"
         let zoneNamePostEscape = zoneNamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{zone_name}", with: zoneNamePostEscape, options: .literal, range: nil)
-        let URLString = ExtoleConsumerAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
-        let url = URLComponents(string: URLString)
-
-
-        let requestBuilder: RequestBuilder<Void>.Type = ExtoleConsumerAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
-    }
-    /**
-
-     - parameter body: (body)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func post(body: RenderZoneRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        postWithRequestBuilder(body: body).execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - POST /zones
-
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: COOKIE
-     - API Key:
-       - type: apiKey Authorization 
-       - name: HEADER
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: QUERY
-     - parameter body: (body)  (optional)
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func postWithRequestBuilder(body: RenderZoneRequest? = nil) -> RequestBuilder<Void> {
-        let path = "/zones"
         let URLString = ExtoleConsumerAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
         let url = URLComponents(string: URLString)
