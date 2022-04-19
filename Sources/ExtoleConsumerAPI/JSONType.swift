@@ -30,7 +30,9 @@ public class Entry: JSONType {
             try container.encode(arrayValue)
         } else if let dictionaryValue = jsonValue as? Dictionary<String, Entry> {
             try container.encode(dictionaryValue)
-        } else {throw EncodingError.invalidValue(jsonValue, EncodingError.Context(codingPath: encoder.codingPath, debugDescription: "Invalid JSON value"))}
+        } else {
+            throw EncodingError.invalidValue(jsonValue, EncodingError.Context(codingPath: encoder.codingPath, debugDescription: "Invalid JSON value"))
+        }
     }
 
     required public init(from decoder: Decoder) throws {

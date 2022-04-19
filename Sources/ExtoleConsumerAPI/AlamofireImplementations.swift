@@ -72,22 +72,22 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                                                            .map { $0.0 }
 
         if fileKeys.count > 0 {
-          let request = manager.upload(multipartFormData: { mpForm in
-              for (k, v) in self.parameters! {
-                  switch v {
+          let request = manager.upload(multipartFormData: { multipartForm in
+              for (key, value) in self.parameters! {
+                  switch value {
                   case let fileURL as URL:
                       if let mimeType = self.contentTypeForFormPart(fileURL: fileURL) {
-                          mpForm.append(fileURL, withName: k, fileName: fileURL.lastPathComponent, mimeType: mimeType)
+                          multipartForm.append(fileURL, withName: key, fileName: fileURL.lastPathComponent, mimeType: mimeType)
                       }
                       else {
-                          mpForm.append(fileURL, withName: k)
+                          multipartForm.append(fileURL, withName: key)
                       }
                   case let string as String:
-                      mpForm.append(string.data(using: String.Encoding.utf8)!, withName: k)
+                      multipartForm.append(string.data(using: String.Encoding.utf8)!, withName: key)
                   case let number as NSNumber:
-                      mpForm.append(number.stringValue.data(using: String.Encoding.utf8)!, withName: k)
+                      multipartForm.append(number.stringValue.data(using: String.Encoding.utf8)!, withName: key)
                   default:
-                      fatalError("Unprocessable value \(v) with key \(k)")
+                      fatalError("Unprocessable value \(value) with key \(key)")
                   }
               }
               }, to: URLString, method: xMethod, headers: nil)
@@ -123,7 +123,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
 
         switch T.self {
         case is String.Type:
-            validatedRequest.responseString(completionHandler: { (stringResponse) in
+            validatedRequest.responseString(queue: DispatchQueue.global(), completionHandler: { (stringResponse) in
                 cleanupRequest()
 
                 switch stringResponse.result {
@@ -144,7 +144,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                 }
             })
         case is URL.Type:
-            validatedRequest.responseData(completionHandler: { (dataResponse) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (dataResponse) in
                 cleanupRequest()
 
                 do {
@@ -195,7 +195,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                 return
             })
         case is Void.Type:
-            validatedRequest.responseData(completionHandler: { (voidResponse) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (voidResponse) in
                 cleanupRequest()
 
                 switch voidResponse.result {
@@ -215,7 +215,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                 }
             })
         default:
-            validatedRequest.responseData(completionHandler: { (dataResponse) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (dataResponse) in
                 cleanupRequest()
 
                 switch dataResponse.result {
@@ -331,7 +331,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
 
         switch T.self {
         case is String.Type:
-            validatedRequest.responseString(completionHandler: { (stringResponse) in
+            validatedRequest.responseString(queue: DispatchQueue.global(), completionHandler: { (stringResponse) in
                 cleanupRequest()
 
                 switch stringResponse.result {
@@ -352,7 +352,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
                 }
             })
         case is Void.Type:
-            validatedRequest.responseData(completionHandler: { (voidResponse) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (voidResponse) in
                 cleanupRequest()
 
                 switch voidResponse.result {
@@ -372,7 +372,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
                 }
             })
         case is Data.Type:
-            validatedRequest.responseData(completionHandler: { (dataResponse) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (dataResponse) in
                 cleanupRequest()
 
                 switch dataResponse.result {
@@ -393,7 +393,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
                 }
             })
         default:
-            validatedRequest.responseData(completionHandler: { (dataResponse: AFDataResponse<Data>) in
+            validatedRequest.responseData(queue: DispatchQueue.global(), completionHandler: { (dataResponse: AFDataResponse<Data>) in
                 cleanupRequest()
 
                 switch dataResponse.result {
