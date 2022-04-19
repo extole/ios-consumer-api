@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name = 'ExtoleConsumerAPI'
   s.ios.deployment_target = '10.0'
   s.platform = :ios, "10.0"
-  s.version = '0.0.15'
+  s.version = '0.0.16'
   s.source = { :git => 'https://github.com/extole/ios-consumer-api.git', :tag => "#{s.version}" }
   s.authors = 'Extole'
   s.license = { :type => "MIT", :file => "LICENSE" }
