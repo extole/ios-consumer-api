@@ -23,6 +23,7 @@ public struct RewardResponse: Codable {
         case brl = "BRL"
         case inr = "INR"
         case nzd = "NZD"
+        case mxn = "MXN"
         case points = "POINTS"
     }
     public enum ModelType: String, Codable { 
