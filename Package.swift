@@ -6,8 +6,7 @@ import PackageDescription
 let package = Package(
     name: "ExtoleConsumerAPI",
     platforms: [
-        .iOS(.v10),
-        .macOS(.v10_15)
+        .iOS(.v13),
     ],
     products: [
         .library(
