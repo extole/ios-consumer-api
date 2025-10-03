@@ -35,7 +35,7 @@
     "description" : "PersonAssets"
   }, {
     "name" : "/v4/unsubscribe",
-    "description" : "Endpoint meant to be used in email one-click unsubscribe as described in https://datatracker.ietf.org/doc/html/rfc8058"
+    "description" : "Unsubscribe"
   }, {
     "name" : "/events",
     "description" : "Event"
