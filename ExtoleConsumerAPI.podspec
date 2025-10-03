@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/extole/'
   s.summary = 'ExtoleConsumerAPI'
   s.source_files = 'Sources/ExtoleConsumerAPI/**/*.{swift}'
-  s.dependency 'Alamofire', '~> 5.1.0'
+  s.dependency 'Alamofire', '~> 5.10.2'
   s.swift_version = '5.0'
   s.swift_versions = ["5.0"]
 end

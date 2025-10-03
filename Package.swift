@@ -14,7 +14,7 @@ let package = Package(
             targets: ["ExtoleConsumerAPI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.1.0"))
+        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.10.2"))
     ],
     targets: [
         .target(
