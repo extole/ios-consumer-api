@@ -13,10 +13,10 @@ open class CreativeLoggingEndpoints {
     /**
      Used to send log messages to Extole
 
-     - parameter body: (body)  
+     - parameter body: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func create(body: CreateCreativeLogRequest, completion: @escaping ((_ data: CreateCreativeLogResponse?,_ error: Error?) -> Void)) {
+    open class func create(body: CreateCreativeLogRequest? = nil, completion: @escaping ((_ data: CreateCreativeLogResponse?,_ error: Error?) -> Void)) {
         createWithRequestBuilder(body: body).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -40,11 +40,11 @@ open class CreativeLoggingEndpoints {
      - examples: [{contentType=application/json, example={
   "polling_id" : "polling_id"
 }}]
-     - parameter body: (body)  
+     - parameter body: (body)  (optional)
 
      - returns: RequestBuilder<CreateCreativeLogResponse> 
      */
-    open class func createWithRequestBuilder(body: CreateCreativeLogRequest) -> RequestBuilder<CreateCreativeLogResponse> {
+    open class func createWithRequestBuilder(body: CreateCreativeLogRequest? = nil) -> RequestBuilder<CreateCreativeLogResponse> {
         let path = "/v4/debug/logs"
         let URLString = ExtoleConsumerAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)

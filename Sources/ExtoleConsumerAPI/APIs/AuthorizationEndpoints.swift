@@ -61,13 +61,9 @@ open class AuthorizationEndpoints {
 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func deleteToken(completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+    open class func deleteToken(completion: @escaping ((_ data: SuccessResponse?,_ error: Error?) -> Void)) {
         deleteTokenWithRequestBuilder().execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
+            completion(response?.body, error)
         }
     }
 
@@ -85,17 +81,20 @@ open class AuthorizationEndpoints {
      - API Key:
        - type: apiKey access_token (QUERY)
        - name: QUERY
+     - examples: [{contentType=application/json, example={
+  "status" : "status"
+}}]
 
-     - returns: RequestBuilder<Void> 
+     - returns: RequestBuilder<SuccessResponse> 
      */
-    open class func deleteTokenWithRequestBuilder() -> RequestBuilder<Void> {
+    open class func deleteTokenWithRequestBuilder() -> RequestBuilder<SuccessResponse> {
         let path = "/v5/token"
         let URLString = ExtoleConsumerAPI.basePath + path
         let parameters: [String:Any]? = nil
         let url = URLComponents(string: URLString)
 
 
-        let requestBuilder: RequestBuilder<Void>.Type = ExtoleConsumerAPI.requestBuilderFactory.getNonDecodableBuilder()
+        let requestBuilder: RequestBuilder<SuccessResponse>.Type = ExtoleConsumerAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

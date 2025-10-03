@@ -64,10 +64,10 @@ open class EventEndpoints {
     /**
      Submits the event with the name specified in request body.
 
-     - parameter body: (body)  
+     - parameter body: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func post(body: SubmitEventRequest, completion: @escaping ((_ data: SubmitEventResponse?,_ error: Error?) -> Void)) {
+    open class func post(body: SubmitEventRequest? = nil, completion: @escaping ((_ data: SubmitEventResponse?,_ error: Error?) -> Void)) {
         postWithRequestBuilder(body: body).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -94,11 +94,11 @@ open class EventEndpoints {
   "id" : "id",
   "token" : "token"
 }}]
-     - parameter body: (body)  
+     - parameter body: (body)  (optional)
 
      - returns: RequestBuilder<SubmitEventResponse> 
      */
-    open class func postWithRequestBuilder(body: SubmitEventRequest) -> RequestBuilder<SubmitEventResponse> {
+    open class func postWithRequestBuilder(body: SubmitEventRequest? = nil) -> RequestBuilder<SubmitEventResponse> {
         let path = "/events"
         let URLString = ExtoleConsumerAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
