@@ -15,11 +15,11 @@ public struct CreativeMetricRequest: Codable {
         case histogram = "HISTOGRAM"
         case counter = "COUNTER"
     }
-    public var key: String
-    public var metricType: MetricType
-    public var value: Int64
+    public var key: String?
+    public var metricType: MetricType?
+    public var value: Int64?
 
-    public init(key: String, metricType: MetricType, value: Int64) {
+    public init(key: String? = nil, metricType: MetricType? = nil, value: Int64? = nil) {
         self.key = key
         self.metricType = metricType
         self.value = value

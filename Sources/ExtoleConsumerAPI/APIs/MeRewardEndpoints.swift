@@ -39,27 +39,33 @@ open class MeRewardEndpoints {
      - examples: [{contentType=application/json, example={
   "reward" : {
     "reward_supplier_id" : "reward_supplier_id",
+    "code" : "code",
+    "reward_type" : "ID",
+    "face_value_type" : "PERCENT_OFF",
+    "program_label" : "program_label",
+    "type" : "TANGO_V2",
+    "journey_key" : {
+      "name" : "name",
+      "value" : "value"
+    },
+    "reward_name" : "reward_name",
+    "state" : "state",
+    "id" : "id",
+    "campaign_id" : "campaign_id",
     "amount" : "amount",
     "date_delivered" : "date_delivered",
     "partner_reward_id" : "partner_reward_id",
-    "code" : "code",
     "expiry_date" : "expiry_date",
     "sandbox" : "sandbox",
-    "face_value_type" : "PERCENT_OFF",
-    "program_label" : "program_label",
+    "journey_name" : "journey_name",
     "face_value" : "face_value",
-    "type" : "TANGO_V2",
     "tags" : [ "tags", "tags" ],
     "date_earned" : "date_earned",
     "redeemed_date" : "redeemed_date",
     "slots" : [ "slots", "slots" ],
     "partner_reward_supplier_id" : "partner_reward_supplier_id",
     "date_issued" : "date_issued",
-    "reward_name" : "reward_name",
-    "reward_id" : "reward_id",
-    "state" : "state",
-    "id" : "id",
-    "campaign_id" : "campaign_id"
+    "reward_id" : "reward_id"
   },
   "quality_results" : [ {
     "score" : "ERROR",

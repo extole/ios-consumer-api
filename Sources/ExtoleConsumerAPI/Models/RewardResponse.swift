@@ -13,6 +13,8 @@ public struct RewardResponse: Codable {
 
     public enum FaceValueType: String, Codable { 
         case percentOff = "PERCENT_OFF"
+        case points = "POINTS"
+        case month = "MONTH"
         case usd = "USD"
         case gbp = "GBP"
         case eur = "EUR"
@@ -24,13 +26,21 @@ public struct RewardResponse: Codable {
         case inr = "INR"
         case nzd = "NZD"
         case mxn = "MXN"
-        case points = "POINTS"
+        case krw = "KRW"
+        case twd = "TWD"
+        case _try = "TRY"
+        case hkd = "HKD"
     }
     public enum ModelType: String, Codable { 
         case tangoV2 = "TANGO_V2"
         case coupon = "COUPON"
         case customReward = "CUSTOM_REWARD"
         case paypalPayouts = "PAYPAL_PAYOUTS"
+    }
+    public enum RewardType: String, Codable { 
+        case _id = "ID"
+        case coupon = "COUPON"
+        case link = "LINK"
     }
     public var rewardId: String?
     public var state: String?
@@ -48,14 +58,17 @@ public struct RewardResponse: Codable {
     public var slots: [String]?
     public var tags: [String]?
     public var type: ModelType?
+    public var rewardType: RewardType?
     public var rewardSupplierId: String?
     public var partnerRewardSupplierId: String?
     public var rewardName: String?
     public var expiryDate: String?
     public var redeemedDate: String?
+    public var journeyName: String?
+    public var journeyKey: JourneyKey?
     public var _id: String?
 
-    public init(rewardId: String? = nil, state: String? = nil, partnerRewardId: String? = nil, code: String? = nil, faceValue: String? = nil, amount: String? = nil, faceValueType: FaceValueType? = nil, dateEarned: String? = nil, dateIssued: String? = nil, dateDelivered: String? = nil, campaignId: String? = nil, programLabel: String? = nil, sandbox: String? = nil, slots: [String]? = nil, tags: [String]? = nil, type: ModelType? = nil, rewardSupplierId: String? = nil, partnerRewardSupplierId: String? = nil, rewardName: String? = nil, expiryDate: String? = nil, redeemedDate: String? = nil, _id: String? = nil) {
+    public init(rewardId: String? = nil, state: String? = nil, partnerRewardId: String? = nil, code: String? = nil, faceValue: String? = nil, amount: String? = nil, faceValueType: FaceValueType? = nil, dateEarned: String? = nil, dateIssued: String? = nil, dateDelivered: String? = nil, campaignId: String? = nil, programLabel: String? = nil, sandbox: String? = nil, slots: [String]? = nil, tags: [String]? = nil, type: ModelType? = nil, rewardType: RewardType? = nil, rewardSupplierId: String? = nil, partnerRewardSupplierId: String? = nil, rewardName: String? = nil, expiryDate: String? = nil, redeemedDate: String? = nil, journeyName: String? = nil, journeyKey: JourneyKey? = nil, _id: String? = nil) {
         self.rewardId = rewardId
         self.state = state
         self.partnerRewardId = partnerRewardId
@@ -72,11 +85,14 @@ public struct RewardResponse: Codable {
         self.slots = slots
         self.tags = tags
         self.type = type
+        self.rewardType = rewardType
         self.rewardSupplierId = rewardSupplierId
         self.partnerRewardSupplierId = partnerRewardSupplierId
         self.rewardName = rewardName
         self.expiryDate = expiryDate
         self.redeemedDate = redeemedDate
+        self.journeyName = journeyName
+        self.journeyKey = journeyKey
         self._id = _id
     }
 
@@ -97,11 +113,14 @@ public struct RewardResponse: Codable {
         case slots
         case tags
         case type
+        case rewardType = "reward_type"
         case rewardSupplierId = "reward_supplier_id"
         case partnerRewardSupplierId = "partner_reward_supplier_id"
         case rewardName = "reward_name"
         case expiryDate = "expiry_date"
         case redeemedDate = "redeemed_date"
+        case journeyName = "journey_name"
+        case journeyKey = "journey_key"
         case _id = "id"
     }
 

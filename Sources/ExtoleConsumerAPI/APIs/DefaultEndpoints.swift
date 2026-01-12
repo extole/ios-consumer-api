@@ -11,65 +11,6 @@ import Alamofire
 
 open class DefaultEndpoints {
     /**
-     Download asset by personId and assetId
-
-     - parameter personId: (path) The Extole unique profile identifier of this user at Extole. 
-     - parameter assetId: (path) The Extole unique profile identifier of this asset at Extole. 
-     - parameter defaultUrl: (query)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func downloadAssetById(personId: String, assetId: String, defaultUrl: String? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        downloadAssetByIdWithRequestBuilder(personId: personId, assetId: assetId, defaultUrl: defaultUrl).execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     Download asset by personId and assetId
-     - GET /web/persons/{personId}/assets/{assetId}/download
-     - 
-
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: COOKIE
-     - API Key:
-       - type: apiKey Authorization 
-       - name: HEADER
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: QUERY
-     - parameter personId: (path) The Extole unique profile identifier of this user at Extole. 
-     - parameter assetId: (path) The Extole unique profile identifier of this asset at Extole. 
-     - parameter defaultUrl: (query)  (optional)
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func downloadAssetByIdWithRequestBuilder(personId: String, assetId: String, defaultUrl: String? = nil) -> RequestBuilder<Void> {
-        var path = "/web/persons/{personId}/assets/{assetId}/download"
-        let personIdPreEscape = "\(personId)"
-        let personIdPostEscape = personIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{personId}", with: personIdPostEscape, options: .literal, range: nil)
-        let assetIdPreEscape = "\(assetId)"
-        let assetIdPostEscape = assetIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{assetId}", with: assetIdPostEscape, options: .literal, range: nil)
-        let URLString = ExtoleConsumerAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-                        "default_url": defaultUrl
-        ])
-
-
-        let requestBuilder: RequestBuilder<Void>.Type = ExtoleConsumerAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-    /**
      Download content for an asset
 
      - parameter personId: (path) The Extole unique profile identifier of this user at Extole. 
@@ -117,63 +58,6 @@ open class DefaultEndpoints {
         let URLString = ExtoleConsumerAPI.basePath + path
         let parameters: [String:Any]? = nil
         let url = URLComponents(string: URLString)
-
-
-        let requestBuilder: RequestBuilder<Void>.Type = ExtoleConsumerAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-    /**
-     Download asset by personId and name
-
-     - parameter personId: (path) The Extole unique profile identifier of this user at Extole. 
-     - parameter name: (query)  (optional)
-     - parameter defaultUrl: (query)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func downloadAssetByName(personId: String, name: String? = nil, defaultUrl: String? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        downloadAssetByNameWithRequestBuilder(personId: personId, name: name, defaultUrl: defaultUrl).execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     Download asset by personId and name
-     - GET /web/persons/{personId}/assets/download
-     - 
-
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: COOKIE
-     - API Key:
-       - type: apiKey Authorization 
-       - name: HEADER
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: QUERY
-     - parameter personId: (path) The Extole unique profile identifier of this user at Extole. 
-     - parameter name: (query)  (optional)
-     - parameter defaultUrl: (query)  (optional)
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func downloadAssetByNameWithRequestBuilder(personId: String, name: String? = nil, defaultUrl: String? = nil) -> RequestBuilder<Void> {
-        var path = "/web/persons/{personId}/assets/download"
-        let personIdPreEscape = "\(personId)"
-        let personIdPostEscape = personIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        path = path.replacingOccurrences(of: "{personId}", with: personIdPostEscape, options: .literal, range: nil)
-        let URLString = ExtoleConsumerAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-                        "name": name, 
-                        "default_url": defaultUrl
-        ])
 
 
         let requestBuilder: RequestBuilder<Void>.Type = ExtoleConsumerAPI.requestBuilderFactory.getNonDecodableBuilder()
@@ -298,6 +182,49 @@ open class DefaultEndpoints {
     }
     /**
 
+     - parameter body: (body)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func post(body: RenderZoneRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
+        postWithRequestBuilder(body: body).execute { (response, error) -> Void in
+            if error == nil {
+                completion((), error)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    /**
+     - POST /zones
+
+     - API Key:
+       - type: apiKey access_token (QUERY)
+       - name: COOKIE
+     - API Key:
+       - type: apiKey Authorization 
+       - name: HEADER
+     - API Key:
+       - type: apiKey access_token (QUERY)
+       - name: QUERY
+     - parameter body: (body)  (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func postWithRequestBuilder(body: RenderZoneRequest? = nil) -> RequestBuilder<Void> {
+        let path = "/zones"
+        let URLString = ExtoleConsumerAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
+        let url = URLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<Void>.Type = ExtoleConsumerAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+    /**
+
      - parameter zoneName: (path)  
      - parameter body: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -335,49 +262,6 @@ open class DefaultEndpoints {
         let zoneNamePreEscape = "\(zoneName)"
         let zoneNamePostEscape = zoneNamePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         path = path.replacingOccurrences(of: "{zone_name}", with: zoneNamePostEscape, options: .literal, range: nil)
-        let URLString = ExtoleConsumerAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
-        let url = URLComponents(string: URLString)
-
-
-        let requestBuilder: RequestBuilder<Void>.Type = ExtoleConsumerAPI.requestBuilderFactory.getNonDecodableBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
-    }
-    /**
-
-     - parameter body: (body)  (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func post(body: RenderZoneRequest? = nil, completion: @escaping ((_ data: Void?,_ error: Error?) -> Void)) {
-        postWithRequestBuilder(body: body).execute { (response, error) -> Void in
-            if error == nil {
-                completion((), error)
-            } else {
-                completion(nil, error)
-            }
-        }
-    }
-
-
-    /**
-     - POST /zones
-
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: COOKIE
-     - API Key:
-       - type: apiKey Authorization 
-       - name: HEADER
-     - API Key:
-       - type: apiKey access_token (QUERY)
-       - name: QUERY
-     - parameter body: (body)  (optional)
-
-     - returns: RequestBuilder<Void> 
-     */
-    open class func postWithRequestBuilder(body: RenderZoneRequest? = nil) -> RequestBuilder<Void> {
-        let path = "/zones"
         let URLString = ExtoleConsumerAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
         let url = URLComponents(string: URLString)
@@ -449,10 +333,10 @@ open class DefaultEndpoints {
     /**
      Record metric internally in grafana
 
-     - parameter body: (body)  
+     - parameter body: (body)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func record(body: CreativeMetricRequest, completion: @escaping ((_ data: CreativeMetricResponse?,_ error: Error?) -> Void)) {
+    open class func record(body: CreativeMetricRequest? = nil, completion: @escaping ((_ data: CreativeMetricResponse?,_ error: Error?) -> Void)) {
         recordWithRequestBuilder(body: body).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -476,11 +360,11 @@ open class DefaultEndpoints {
      - examples: [{contentType=application/json, example={
   "id" : "id"
 }}]
-     - parameter body: (body)  
+     - parameter body: (body)  (optional)
 
      - returns: RequestBuilder<CreativeMetricResponse> 
      */
-    open class func recordWithRequestBuilder(body: CreativeMetricRequest) -> RequestBuilder<CreativeMetricResponse> {
+    open class func recordWithRequestBuilder(body: CreativeMetricRequest? = nil) -> RequestBuilder<CreativeMetricResponse> {
         let path = "/v4/debug/metrics"
         let URLString = ExtoleConsumerAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: body)
