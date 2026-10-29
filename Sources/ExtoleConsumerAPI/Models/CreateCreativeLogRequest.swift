@@ -16,6 +16,12 @@ public struct CreateCreativeLogRequest: Codable {
         case warn = "WARN"
         case info = "INFO"
         case debug = "DEBUG"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public var message: String?
     public var level: Level?

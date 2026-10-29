@@ -15,6 +15,12 @@ public struct QualityRuleResult: Codable {
         case error = "ERROR"
         case low = "LOW"
         case high = "HIGH"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public var ruleName: String?
     public var score: Score?

@@ -30,17 +30,35 @@ public struct RewardResponse: Codable {
         case twd = "TWD"
         case _try = "TRY"
         case hkd = "HKD"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public enum ModelType: String, Codable { 
         case tangoV2 = "TANGO_V2"
         case coupon = "COUPON"
         case customReward = "CUSTOM_REWARD"
         case paypalPayouts = "PAYPAL_PAYOUTS"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public enum RewardType: String, Codable { 
         case _id = "ID"
         case coupon = "COUPON"
         case link = "LINK"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public var rewardId: String?
     public var state: String?
