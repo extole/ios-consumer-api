@@ -15,10 +15,22 @@ public struct PersonAssetResponse: Codable {
         case pendingReview = "PENDING_REVIEW"
         case approved = "APPROVED"
         case denied = "DENIED"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public enum DataType: String, Codable { 
         case _public = "PUBLIC"
         case _private = "PRIVATE"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public var _id: String?
     public var name: String?

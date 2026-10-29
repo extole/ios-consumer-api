@@ -3019,7 +3019,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "enum" : [ "VERIFIED_CONSUMER", "UPDATE_PROFILE" ]
+              "enum" : [ "VERIFIED_CONSUMER", "ANONYMOUS_CONSUMER", "UPDATE_PROFILE" ]
             }
           }
         }
@@ -3062,7 +3062,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "enum" : [ "VERIFIED_CONSUMER", "UPDATE_PROFILE" ]
+              "enum" : [ "VERIFIED_CONSUMER", "ANONYMOUS_CONSUMER", "UPDATE_PROFILE" ]
             }
           },
           "capabilities" : {
@@ -3070,7 +3070,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "enum" : [ "VERIFIED_CONSUMER", "UPDATE_PROFILE" ]
+              "enum" : [ "VERIFIED_CONSUMER", "ANONYMOUS_CONSUMER", "UPDATE_PROFILE" ]
             }
           }
         }

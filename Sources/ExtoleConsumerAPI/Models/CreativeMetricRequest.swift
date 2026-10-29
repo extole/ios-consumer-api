@@ -14,6 +14,12 @@ public struct CreativeMetricRequest: Codable {
     public enum MetricType: String, Codable { 
         case histogram = "HISTOGRAM"
         case counter = "COUNTER"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public var key: String?
     public var metricType: MetricType?
