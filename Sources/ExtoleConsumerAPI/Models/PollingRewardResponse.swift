@@ -15,6 +15,12 @@ public struct PollingRewardResponse: Codable {
         case pending = "PENDING"
         case succeeded = "SUCCEEDED"
         case failed = "FAILED"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public var reward: RewardResponse?
     public var status: Status?

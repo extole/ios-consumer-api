@@ -15,11 +15,23 @@ public struct MyProfileResponse: Codable {
         case extole = "EXTOLE"
         case client = "CLIENT"
         case unset = "UNSET"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public enum ProcessingConsentType: String, Codable { 
         case extole = "EXTOLE"
         case client = "CLIENT"
         case unset = "UNSET"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public var _id: String?
     public var email: String?

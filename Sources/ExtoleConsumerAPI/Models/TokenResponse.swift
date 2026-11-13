@@ -13,7 +13,15 @@ public struct TokenResponse: Codable {
 
     public enum Scopes: String, Codable { 
         case verifiedConsumer = "VERIFIED_CONSUMER"
+        case anonymousConsumer = "ANONYMOUS_CONSUMER"
+        @available(*, deprecated, message: "An unverified consumer holds ANONYMOUS_CONSUMER")
         case updateProfile = "UPDATE_PROFILE"
+        case unknownDefaultOpenApi = "unknown_default_open_api"
+
+        public init(from decoder: Decoder) throws {
+            let rawValue = try decoder.singleValueContainer().decode(RawValue.self)
+            self = Self(rawValue: rawValue) ?? .unknownDefaultOpenApi
+        }
     }
     public var accessToken: String?
     public var expiresIn: Int64?
